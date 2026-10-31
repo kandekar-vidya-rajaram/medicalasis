@@ -16,6 +16,9 @@ Frontend:
 ```
 
 Open the Streamlit URL shown in the frontend terminal (normally
-`http://localhost:8501`). Ask a question in the chat; the backend returns the
-retrieved PDF text as JSON and Streamlit displays it in the chat. The backend
-terminal is for server logs, not the user interface.
+`http://localhost:8501`). Upload PDF documents, then ask a question in the
+chat. The backend searches Pinecone for relevant document text and sends that
+context with the question to the Groq LLM (`openai/gpt-oss-120b`) to generate
+a response. The API returns the generated answer and source filenames, and
+Streamlit displays them in the chat. The backend terminal is for server logs,
+not the user interface.
